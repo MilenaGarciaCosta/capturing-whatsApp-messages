@@ -3,7 +3,7 @@
 This project aims to monitor a chat or group message feed and capture each sent message. The goal is to search for a specific pattern in the captured message, and if it meets the established criteria, the relevant information is stored and later displayed in the terminal in a clean and formatted manner.
 
 
-## :wrench: Seting up
+## :wrench: Setting up
 First, install Selenium.
 
 ```bash
