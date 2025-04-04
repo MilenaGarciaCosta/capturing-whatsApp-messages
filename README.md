@@ -3,7 +3,7 @@
 This project aims to monitor a chat or group message feed and capture each sent message. The goal is to search for a specific pattern in the captured message, and if it meets the established criteria, the relevant information is stored and later displayed in the terminal in a clean and formatted manner.
 
 
-## Seting up
+## :wrench: Seting up
 First, install Selenium.
 
 ```bash
@@ -21,9 +21,9 @@ In your code, you will need to reference the location of this driver. It is reco
   C:\WebDriver\msedgedriver.exe
 ```
 
-If you choose to place it in a different location, remember to update the path in your code accordingly.
+:bulb: If you choose to place it in a different location, remember to update the path in your code accordingly.
 
-## How to run
+## :running: How to run
 To run the program, open the code file and execute the following command in the terminal
 
 ```bash
