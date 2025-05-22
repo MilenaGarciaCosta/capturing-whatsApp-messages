@@ -7,6 +7,12 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import re
 
+from conexao import Conectar # Importando a classe de conexão com o banco de dados
+
+# Conexão com o banco de dados
+conexao = Conectar()
+cursor = conexao.cursor()
+
 # Configuração do navegador Edge
 edge_options = Options()
 edge_options.add_argument("--log-level=3")
@@ -16,6 +22,15 @@ caminho_edgedriver = r"C:\WebDriver\msedgedriver.exe" # Esse driver deve estar e
 service = Service(caminho_edgedriver)
 driver = webdriver.Edge(service=service, options=edge_options)
 driver.maximize_window() # Deixando a tela do nagevador maximizada
+
+# Função inserir no banco de dados
+def inserir_dados(cursor, nome, local, problema, horario):
+    sql ="""
+        INSERT INTO chamados (nome_solicitante_chamado, local_chamado, problema_chamado, horario_solicitacao_chamado) 
+        VALUES (%s, %s, %s, %s)
+    """
+    valores = (nome, local, problema, horario)
+    cursor.execute(sql, valores)
 
 try:
     # Abre o WhatsApp Web
@@ -64,6 +79,12 @@ try:
 
             # Imprime aos valores agrupados de maneira padronizada
             print(f"Nome: {nome}\nLocal: {local}\nProblema: {problema}\nHorário: {horario}\n")
+
+            inserir_dados(cursor, nome, local, problema, horario)
+            conexao.commit()
+
+            print(cursor.rowcount, "registro inserido com sucesso.")
+
         else:
             print("Erro: Padrão não encontrado.\n")
 
