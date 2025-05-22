@@ -27,7 +27,7 @@ In your code, you will need to reference the location of this driver. It is reco
 To run the program, open the code file and execute the following command in the terminal
 
 ```bash
-  python teste-selenium.py
+  python capturing-messages_script.py
   or
-  python3 teste-selenium.py
+  python3 capturing-messages_script.py
 ```

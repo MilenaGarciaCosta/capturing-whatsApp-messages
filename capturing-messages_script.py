@@ -65,7 +65,7 @@ try:
             # Imprime aos valores agrupados de maneira padronizada
             print(f"Nome: {nome}\nLocal: {local}\nProblema: {problema}\nHorário: {horario}\n")
         else:
-            print("Erro: Mensagem formatada incorretamente.\n")
+            print("Erro: Padrão não encontrado.\n")
 
     # Loop para monitorar novas mensagens
     try:
